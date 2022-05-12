@@ -3,6 +3,7 @@
   "version": "1.5.0",
   "private": true,
   "dependencies": {
+    "@alan-ai/alan-sdk-web": "^1.8.31",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.5.1",
@@ -10,6 +11,8 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "@stripe/react-stripe-js": "^1.7.2",
+    "@stripe/stripe-js": "^1.27.0",
     "animate.css": "^3.7.2",
     "apexcharts": "^3.35.0",
     "axios": "^0.19.0",
@@ -54,6 +57,7 @@
     "redux-localstorage-simple": "^2.1.6",
     "redux-multilanguage": "^0.1.2",
     "redux-thunk": "^2.3.0",
+    "stripe": "^8.218.0",
     "swiper": "^5.2.0",
     "uuid": "^3.3.3"
   },

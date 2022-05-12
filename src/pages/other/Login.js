@@ -8,9 +8,10 @@ import LayoutOne from "../../layouts/LayoutOne";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+import Register from "./Register";
 
-const Login = ({ location }) => {
-  const { pathname } = location;
+const Login = ({}) => {
+  // const { pathname } = location;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, seterrorMsg] = useState("");
@@ -43,84 +44,38 @@ const Login = ({ location }) => {
   };
   return (
     <Fragment>
-      <MetaTags>
-        <title>Flone | Login</title>
-        <meta
-          name="description"
-          content="Compare page of flone react minimalist eCommerce template."
-        />
-      </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
-        Login
-      </BreadcrumbsItem>
-      <LayoutOne headerTop="visible">
-        {/* breadcrumb */}
-        <Breadcrumb />
-        <div className="login-register-area pt-100 pb-100">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12 col-md-12 ml-auto mr-auto">
-                <div className="login-register-wrapper">
-                  <Tab.Container defaultActiveKey="login">
-                    <Nav variant="pills" className="login-register-tab-list">
-                      <Nav.Item>
-                        <Nav.Link eventKey="login">
-                          <h4>Login</h4>
-                        </Nav.Link>
-                      </Nav.Item>
-                    </Nav>
-
-                    <div className="login-form-container">
-                      <div className="row">
-                        <div className="col-lg-5 col-md-12 ml-auto mr-auto" style={{border:"1px solid black"}} >
-                          <img src="assets/login.jpg" alt="login" style={{width:"100%" , height:"100%"}}/>
-                        </div>
-                        <div className="col-lg-7 col-md-12 ml-auto mr-auto">
-                        <div className="login-register-form">
-                        <form>
-                          <input
-                            name="user-email"
-                            placeholder="Email"
-                            type="email"
-                            onChange={(e) => setEmail(e.target.value)}
-                          />
-                          <input
-                            type="password"
-                            name="user-password"
-                            placeholder="Password"
-                            onChange={(e) => setPassword(e.target.value)}
-                          />
-                          <div className="button-box">
-                            <div className="login-toggle-btn">
-                              <input type="checkbox" />
-                              <label className="ml-10">Remember me</label>
-                              <Link to={process.env.PUBLIC_URL + "/"}>
-                                Forgot Password?
-                              </Link>
-                            </div>
-                            <button type="button" onClick={onLoginSubmit}>
-                              <span>Login</span>
-                            </button>
-                          </div>
-                        </form>
-                      </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Tab.Container>
-                </div>
-              </div>
+      <div className="login-register-form ">
+        <form>
+          <input
+            name="user-email"
+            placeholder="Email"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            name="user-password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className="button-box">
+            <div className="login-toggle-btn">
+              <input type="checkbox" />
+              <label className="ml-10">Remember me</label>
+              <Link to={process.env.PUBLIC_URL + "/"}>Forgot Password?</Link>
             </div>
+            <button type="button" onClick={onLoginSubmit}>
+              <span>Login</span>
+            </button>
           </div>
-        </div>
-      </LayoutOne>
+        </form>
+      </div>
     </Fragment>
   );
 };
 
-Login.propTypes = {
-  location: PropTypes.object,
-};
+// Login.propTypes = {
+//   location: PropTypes.object,
+// };
 
 export default Login;

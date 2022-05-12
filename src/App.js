@@ -9,9 +9,11 @@ import { BreadcrumbsProvider } from "react-breadcrumbs-dynamic";
 import NavBar from "./admin_template/NavBar";
 import SideBar from "./admin_template/SideBar";
 import UserContext from "./User_contex";
-
-
+import useAlan from "./pages/other/Alan"
+import Cbot from "./components/chatbot.js/Cbot";
+import Icon from "./components/chatbot/icon";
 // home pages
+const Payment = lazy(() => import("./components/payment/Payment"));
 const HomeFashion = lazy(() => import("./pages/home/HomeFashion"));
 const HomeFashionTwo = lazy(() => import("./pages/home/HomeFashionTwo"));
 const HomeFashionThree = lazy(() => import("./pages/home/HomeFashionThree"));
@@ -145,8 +147,10 @@ const App = (props) => {
   const { CurrentUser, setCurrentUser } = useContext(UserContext);
 
   const valueUserContext = { CurrentUser, setCurrentUser };
-  
+  useAlan()
+
   useEffect(() => {
+   
     props.dispatch(
       loadLanguages({
         languages: {
@@ -211,6 +215,8 @@ const App = (props) => {
         </div>
       ) : (
         <ToastProvider placement="bottom-left">
+                      <Icon/> 
+
           <BreadcrumbsProvider>
             <Router>
               <ScrollToTop>
@@ -230,12 +236,18 @@ const App = (props) => {
                       path={process.env.PUBLIC_URL + "/"}
                       component={HomeFashion}
                     />
+            <Route exact path={process.env.PUBLIC_URL + "/cb"} component={Cbot} />  
 
                     {/* Homepages */}
                     <Route
                       path={process.env.PUBLIC_URL + "/home-fashion"}
                       component={HomeFashion}
                     />
+                    <Route
+                      path={process.env.PUBLIC_URL + "/Payment"}
+                      component={Payment}
+                    />
+                    
                     <Route
                       path={process.env.PUBLIC_URL + "/home-fashion-two"}
                       component={HomeFashionTwo}

@@ -7,6 +7,9 @@ import Nav from "react-bootstrap/Nav";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import axios from "axios";
+import Register from "./Register";
+import Login from "./Login";
+import { Divider } from "@mui/material";
 const LoginRegister = ({ location }) => {
   const { pathname } = location;
   const [nom, setNom] = useState("");
@@ -36,7 +39,7 @@ const LoginRegister = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Register</title>
+        <title>Flone | Register / Login</title>
         <meta
           name="description"
           content="Compare page of flone react minimalist eCommerce template."
@@ -49,54 +52,45 @@ const LoginRegister = ({ location }) => {
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb />
-        <div className="login-register-area pt-100 pb-100">
+        <div className="login-register-area pt-50 pb-50">
           <div className="container">
             <div className="row">
-              <div className="col-lg-7 col-md-12 ml-auto mr-auto">
+              <div className="col-lg-12 col-md-12 ml-auto mr-auto">
                 <div className="login-register-wrapper">
                   <Tab.Container defaultActiveKey="register">
-                    <Nav variant="pills" className="login-register-tab-list">
-                      <Nav.Item>
-                        <Nav.Link eventKey="register">
-                          <h4>Register</h4>
-                        </Nav.Link>
-                      </Nav.Item>
-                    </Nav>
-
                     <div className="login-form-container">
-                      <div className="login-register-form">
-                        <form>
-                          <input
-                            type="text"
-                            name="user-name"
-                            placeholder="Nom"
-                            onChange={(e) => setNom(e.target.value)}
-                          />
-                          <input
-                            type="text"
-                            name="user-name"
-                            placeholder="Nom"
-                            onChange={(e) => setPrenom(e.target.value)}
-                          />
-
-                          <input
-                            name="user-email"
-                            placeholder="Email"
-                            type="email"
-                            onChange={(e) => setEmail(e.target.value)}
-                          />
-                          <input
-                            type="password"
-                            name="user-password"
-                            placeholder="Password"
-                            onChange={(e) => setPassword(e.target.value)}
-                          />
-                          <div className="button-box">
-                            <button type="button" onClick={onRegister}>
-                              <span>Register</span>
-                            </button>
-                          </div>
-                        </form>
+                      <div className="row">
+                        <div className="col-lg-5 col-md-12 ml-auto mr-auto ">
+                          <Nav
+                            variant="pills"
+                            className="login-register-tab-list"
+                          >
+                            <Nav.Item>
+                              <Nav.Link eventKey="register">
+                                <h4>Login </h4>
+                              </Nav.Link>
+                            </Nav.Item>
+                          </Nav>
+                          <Login />
+                        </div>
+                        <Divider
+                          orientation="vertical"
+                          flexItem
+                          sx={{ color: "#a749ff" }}
+                        />
+                        <div className="col-lg-6 col-md-12 ml-auto mr-auto">
+                          <Nav
+                            variant="pills"
+                            className="login-register-tab-list"
+                          >
+                            <Nav.Item>
+                              <Nav.Link eventKey="register">
+                                <h4>Register </h4>
+                              </Nav.Link>
+                            </Nav.Item>
+                          </Nav>
+                          <Register />
+                        </div>
                       </div>
                     </div>
                   </Tab.Container>
